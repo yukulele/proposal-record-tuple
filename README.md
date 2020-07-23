@@ -79,8 +79,8 @@ const document2 = #{
   ...document,
   title: "Stage 2: Record & Tuple",
 };
-console.log(document.title); // Stage 2: Record & Tuple
-console.log(document.keywords[1]); // tc39
+console.log(document2.title); // Stage 2: Record & Tuple
+console.log(document2.keywords[1]); // tc39
 
 // Object work functions on Records:
 console.log(Object.keys(document)); // ["contents", "id", "keywords", "title"]
@@ -122,21 +122,21 @@ See [more examples here](./details.md#records).
 const measures = #[42, 12, 67, "measure error: foo happened"];
 
 // Accessing indices like you would with arrays!
-console.log(document[0]); // 42
-console.log(document[3]); // measure error: foo happened
+console.log(measures[0]); // 42
+console.log(measures[3]); // measure error: foo happened
 
 // Slice and spread like arrays!
 const correctedMeasures = #[
   ...measures.slice(0, measures.length - 1),
   -1
 ];
-console.log(document[0]); // 42
-console.log(document[3]); // -1
+console.log(correctedMeasures[0]); // 42
+console.log(correctedMeasures[3]); // -1
 
 // or use the .with() shorthand for the same result:
-const correctedMeasures2 = document.with(3, -1);
-console.log(document[0]); // 42
-console.log(document[3]); // -1
+const correctedMeasures2 = measures.with(3, -1);
+console.log(correctedMeasures2[0]); // 42
+console.log(correctedMeasures2[3]); // -1
 
 // Tuples support methods similar to Arrays
 console.log(correctedMeasures2.map(x => x + 1)); // #[43, 13, 68, 0]
